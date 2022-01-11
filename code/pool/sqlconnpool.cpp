@@ -37,6 +37,7 @@ void SqlConnPool::Init(const char* host, int port,
         connQue_.push(sql);
     }
     MAX_CONN_ = connSize;
+    // 第二个参数为0表示进程内线程共享，MAX_CONN_表示信号灯数量
     sem_init(&semId_, 0, MAX_CONN_);
 }
 

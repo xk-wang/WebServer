@@ -178,6 +178,7 @@ bool HttpRequest::UserVerify(const string &name, const string &pwd, bool isLogin
     if(name == "" || pwd == "") { return false; }
     LOG_INFO("Verify name:%s pwd:%s", name.c_str(), pwd.c_str());
     MYSQL* sql;
+    // 临时对象，作用于之后自动进行资源回收
     SqlConnRAII(&sql,  SqlConnPool::Instance());
     assert(sql);
     
